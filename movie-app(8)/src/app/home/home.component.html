@@ -1,0 +1,30 @@
+<div>
+    <h1>Movie review system</h1>
+    <div>
+        <h2>Add movies</h2>
+        <input
+        type="text"
+        placeholder="Movie Name"
+        [(ngModel)]="name"
+        required><br>
+
+        <input
+        type="number"
+        placeholder="Rating (1-5)"
+        [(ngModel)]="rating"
+        required><br>
+
+        <textarea
+        placeholder="Write your review"
+        [(ngModel)]="review"></textarea><br>
+
+        <button (click)="addReview()">Add Review</button>
+    </div>
+
+    <div>
+        <h2>Movie Reviews</h2>
+        <app-movie-card
+            *ngFor="let movie of movies"
+            [movie]="movie"></app-movie-card>
+    </div>
+</div>

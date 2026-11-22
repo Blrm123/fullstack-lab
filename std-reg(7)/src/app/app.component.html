@@ -1,0 +1,32 @@
+<div [class.dark]="dark">
+  <button (click)="changeTheme()">
+    {{dark ? '🌕 Light Mode' : '🌚 dark mode'}}
+  </button>
+  <h1>Registration form</h1>
+  <input
+    type="text"
+    placeholder="Enter student name"
+    [(ngModel)]="name"
+    required>
+  <button (click)="join()">Join</button>
+  <hr>
+  <h1 *ngIf="students.length >0">
+    Welcome {{students[students.length-1]}}
+  </h1>
+  <hr>
+  <h2>Registered strtudents</h2>
+  <ul>
+    <li *ngFor="let s of students">
+      {{s}}
+    </li>
+  </ul>
+
+  <hr>
+  <h2>Registration progress</h2>
+  <p>{{students.length}}/{{totalSeats}} Student Registered</p>
+  <p>Available Seats: {{totalSeats - students.length}}</p>
+
+  <h2>Registration Progress</h2>
+  <h3>{{getSeats()}}</h3>
+  <p>{{students.length}} / {{totalSeats}} Seats filled</p>
+</div>
